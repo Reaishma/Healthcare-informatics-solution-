@@ -258,6 +258,14 @@ This is a demonstration project, but suggestions for improvements are welcome:
 4. Test thoroughly
 5. Submit a pull request
 
+## Developer 🧑‍💻
+
+  **Reaishma N**
+
+## 📄 Licence 
+ 
+ This project is licensed under MIT Licence 
+
 ## 📞 Support
 
 For questions or issues:
