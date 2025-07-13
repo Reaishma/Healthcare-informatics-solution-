@@ -1,6 +1,6 @@
-# Healthcare Workflow Management System
+# 🧑‍⚕️Healthcare Workflow Management System
 
-## Overview
+## ✅Overview
 
 A comprehensive healthcare workflow management system built with React frontend and Express backend. The application manages clinical workflows, task assignments, staff scheduling, patient flow monitoring, featuring process mapping, task management, performance analytics and provides real-time collaboration features through WebSocket connections. The system uses PostgreSQL with Drizzle ORM for data persistence and includes an agile Kanban board for workflow management.
 
@@ -132,13 +132,13 @@ The platform includes realistic sample data for demonstration:
 - Local storage only - no data transmitted to external servers
 - HIPAA-compliant design principles followed
 
-## Live Demo 
+## 🚀Live Demo 
  
   [view live demo](https://reaishma.github.io/Healthcare-informatics-solution-/)
 
 
 
-## System Architecture
+## ⚒️ System Architecture
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
@@ -164,7 +164,7 @@ The platform includes realistic sample data for demonstration:
 └── dist/           # Production build output
 ```
 
-## Key Components
+## ✅Key Components
 
 ### Database Schema (shared/schema.ts)
 - **Users**: Authentication and role management (nurse, technician, administrator)
@@ -198,7 +198,7 @@ The platform includes realistic sample data for demonstration:
 3. Frontend updates UI reactively based on WebSocket messages
 4. TanStack Query manages cache invalidation and refetching
 
-### API Communication
+### 💻API Communication
 1. Frontend makes HTTP requests through TanStack Query
 2. Backend validates requests using Zod schemas
 3. Database operations performed through Drizzle ORM
@@ -209,7 +209,7 @@ The platform includes realistic sample data for demonstration:
 - User sessions managed through database
 - Default admin user for system initialization
 
-## External Dependencies
+## 🛠️External Dependencies
 
 ### Frontend Dependencies
 - **UI Framework**: Radix UI primitives with shadcn/ui components
