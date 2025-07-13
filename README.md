@@ -134,7 +134,7 @@ The platform includes realistic sample data for demonstration:
 
 ## Live Demo 
  
-  [view live demo](.  )
+  [view live demo](https://reaishma.github.io/Healthcare-informatics-solution-/)
 
 
 
