@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Workflow Optimization Platform</title>
+    <meta name="description" content="A comprehensive healthcare workflow management system featuring process mapping, task management, and performance analytics with generic staff roles for portfolio demonstration.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Main Container -->
+    <div class="flex min-h-screen" id="app">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-sm border-r border-gray-200">
+            <div class="p-4">
+                <h1 class="text-xl font-bold text-gray-800 mb-6">Healthcare Workflow</h1>
+                <nav class="space-y-2">
+                    <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                        <i data-lucide="layout-dashboard" class="h-5 w-5"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#workflow-design" class="nav-link" data-page="workflow-design">
+                        <i data-lucide="network" class="h-5 w-5"></i>
+                        <span>Workflow Design</span>
+                    </a>
+                    <a href="#task-management" class="nav-link" data-page="task-management">
+                        <i data-lucide="check-square" class="h-5 w-5"></i>
+                        <span>Task Management</span>
+                    </a>
+                    <a href="#staff-scheduling" class="nav-link" data-page="staff-scheduling">
+                        <i data-lucide="calendar" class="h-5 w-5"></i>
+                        <span>Staff Scheduling</span>
+                    </a>
+                    <a href="#patient-flow" class="nav-link" data-page="patient-flow">
+                        <i data-lucide="users" class="h-5 w-5"></i>
+                        <span>Patient Flow</span>
+                    </a>
+                    <a href="#analytics" class="nav-link" data-page="analytics">
+                        <i data-lucide="bar-chart-3" class="h-5 w-5"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a href="#kanban-board" class="nav-link" data-page="kanban-board">
+                        <i data-lucide="columns" class="h-5 w-5"></i>
+                        <span>Kanban Board</span>
+                    </a>
+                    <a href="#settings" class="nav-link" data-page="settings">
+                        <i data-lucide="settings" class="h-5 w-5"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-semibold text-gray-800" id="page-title">Dashboard</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <i data-lucide="bell" class="h-6 w-6 text-gray-500 cursor-pointer"></i>
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">3</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-medium">
+                                U
+                            </div>
+                            <span class="text-sm text-gray-600">User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 p-6 bg-gray-50">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page active">
+                    <div class="space-y-6">
+                        <!-- Stats Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-blue-100 rounded-full">
+                                        <i data-lucide="network" class="h-6 w-6 text-blue-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm text-gray-600">Active Workflows</p>
+                                        <p class="text-2xl font-semibold text-gray-900">24</p>
+                                        <p class="text-sm text-green-600">+12% from last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-yellow-100 rounded-full">
+                                        <i data-lucide="check-square" class="h-6 w-6 text-yellow-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm text-gray-600">Pending Tasks</p>
+                                        <p class="text-2xl font-semibold text-gray-900">156</p>
+                                        <p class="text-sm text-red-600">+8% from last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-green-100 rounded-full">
+                                        <i data-lucide="users" class="h-6 w-6 text-green-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm text-gray-600">Staff On Duty</p>
+                                        <p class="text-2xl font-semibold text-gray-900">42</p>
+                                        <p class="text-sm text-green-600">+3% from last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center">
+                                    <div class="p-3 bg-purple-100 rounded-full">
+                                        <i data-lucide="clock" class="h-6 w-6 text-purple-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm text-gray-600">Patient Queue</p>
+                                        <p class="text-2xl font-semibold text-gray-900">18</p>
+                                        <p class="text-sm text-yellow-600">No change</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Patient Flow Monitor -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2">
+                                <div class="bg-white rounded-lg shadow p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Patient Flow Monitor</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Registration</p>
+                                                <p class="text-sm text-gray-600">8 patients • 5 min avg wait</p>
+                                            </div>
+                                            <div class="w-16 h-2 bg-gray-200 rounded-full">
+                                                <div class="w-8 h-2 bg-green-500 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between p-4 bg-yellow-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Triage</p>
+                                                <p class="text-sm text-gray-600">12 patients • 15 min avg wait</p>
+                                            </div>
+                                            <div class="w-16 h-2 bg-gray-200 rounded-full">
+                                                <div class="w-12 h-2 bg-yellow-500 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between p-4 bg-red-50 rounded-lg">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Treatment</p>
+                                                <p class="text-sm text-gray-600">18 patients • 45 min avg wait</p>
+                                            </div>
+                                            <div class="w-16 h-2 bg-gray-200 rounded-full">
+                                                <div class="w-16 h-2 bg-red-500 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="bg-white rounded-lg shadow p-6">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Tasks</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">Patient assessment - Room 204</p>
+                                                <p class="text-xs text-gray-500">Assigned to Nurse Johnson</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">Medication review</p>
+                                                <p class="text-xs text-gray-500">Assigned to Tech Smith</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">Equipment check</p>
+                                                <p class="text-xs text-gray-500">Completed by Tech Davis</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workflow Design Page -->
+                <div id="workflow-design-page" class="page">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-2xl font-semibold text-gray-900">Workflow Design</h2>
+                            <button class="btn-primary" onclick="showCreateWorkflowModal()">
+                                <i data-lucide="plus" class="h-4 w-4"></i>
+                                Create Workflow
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">Patient Admission</h3>
+                                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-sm">Active</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Standard workflow for patient admission process including registration, triage, and room assignment.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">5 steps • 2 hours avg</span>
+                                    <div class="flex space-x-2">
+                                        <button class="btn-secondary">
+                                            <i data-lucide="edit" class="h-4 w-4"></i>
+                                        </button>
+                                        <button class="btn-secondary">
+                                            <i data-lucide="play" class="h-4 w-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">Discharge Process</h3>
+                                    <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-sm">Review</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Comprehensive discharge workflow including medical clearance, medication review, and follow-up scheduling.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">8 steps • 1.5 hours avg</span>
+                                    <div class="flex space-x-2">
+                                        <button class="btn-secondary">
+                                            <i data-lucide="edit" class="h-4 w-4"></i>
+                                        </button>
+                                        <button class="btn-secondary">
+                                            <i data-lucide="pause" class="h-4 w-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">Emergency Response</h3>
+                                    <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">Critical</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Rapid response workflow for emergency situations requiring immediate medical attention.</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-500">3 steps • 15 min avg</span>
+                                    <div class="flex space-x-2">
+                                        <button class="btn-secondary">
+                                            <i data-lucide="edit" class="h-4 w-4"></i>
+                                        </button>
+                                        <button class="btn-secondary">
+                                            <i data-lucide="play" class="h-4 w-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Management Page -->
+                <div id="task-management-page" class="page">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-2xl font-semibold text-gray-900">Task Management</h2>
+                            <button class="btn-primary" onclick="showCreateTaskModal()">
+                                <i data-lucide="plus" class="h-4 w-4"></i>
+                                Create Task
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow">
+                            <div class="p-6 border-b border-gray-200">
+                                <div class="flex space-x-4">
+                                    <button class="filter-btn active" data-filter="all">All Tasks</button>
+                                    <button class="filter-btn" data-filter="pending">Pending</button>
+                                    <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                                    <button class="filter-btn" data-filter="completed">Completed</button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-900">Patient medication review - Room 305</p>
+                                                <p class="text-sm text-gray-600">Assigned to Nurse Thompson • Due: Today 3:00 PM</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">High</span>
+                                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-sm">Pending</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-900">Equipment maintenance check</p>
+                                                <p class="text-sm text-gray-600">Assigned to Tech Martinez • Due: Tomorrow 10:00 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">Medium</span>
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-sm">In Progress</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                            <div>
+                                                <p class="font-medium text-gray-900">Patient discharge documentation</p>
+                                                <p class="text-sm text-gray-600">Assigned to Administrator Wilson • Completed: 2 hours ago</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-sm">Low</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-sm">Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staff Scheduling Page -->
+                <div id="staff-scheduling-page" class="page">
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-2xl font-semibold text-gray-900">Staff Scheduling</h2>
+                            <button class="btn-primary" onclick="showCreateScheduleModal()">
+                                <i data-lucide="plus" class="h-4 w-4"></i>
+                                Add Schedule
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="grid grid-cols-8 gap-4">
+                                <div class="font-semibold text-gray-900">Staff</div>
+                                <div class="font-semibold text-gray-900 text-center">Mon</div>
+                                <div class="font-semibold text-gray-900 text-center">Tue</div>
+                                <div class="font-semibold text-gray-900 text-center">Wed</div>
+                                <div class="font-semibold text-gray-900 text-center">Thu</div>
+                                <div class="font-semibold text-gray-900 text-center">Fri</div>
+                                <div class="font-semibold text-gray-900 text-center">Sat</div>
+                                <div class="font-semibold text-gray-900 text-center">Sun</div>
+                                
+                                <div class="py-4">
+                                    <div class="font-medium text-gray-900">Nurse Johnson</div>
+                                    <div class="text-sm text-gray-600">RN</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift off">OFF</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift off">OFF</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift evening">3P-11P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift evening">3P-11P</div>
+                                </div>
+                                
+                                <div class="py-4">
+                                    <div class="font-medium text-gray-900">Tech Smith</div>
+                                    <div class="text-sm text-gray-600">CNA</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift evening">3P-11P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift evening">3P-11P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift off">OFF</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift off">OFF</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                                <div class="schedule-cell">
+                                    <div class="schedule-shift morning">7A-3P</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Flow Page -->
+                <div id="patient-flow-page" class="page">
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-semibold text-gray-900">Patient Flow</h2>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Flow Stages</h3>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Registration</p>
+                                                <p class="text-sm text-gray-600">8/15 capacity</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-sm font-medium text-green-600">Normal</p>
+                                                <p class="text-xs text-gray-500">5 min avg</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Triage</p>
+                                                <p class="text-sm text-gray-600">12/15 capacity</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-sm font-medium text-yellow-600">Bottleneck</p>
+                                                <p class="text-xs text-gray-500">15 min avg</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <p class="font-medium text-gray-900">Treatment</p>
+                                                <p class="text-sm text-gray-600">18/20 capacity</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="text-sm font-medium text-red-600">Critical</p>
+                                                <p class="text-xs text-gray-500">45 min avg</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Performance Metrics</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-600">Patient Throughput</span>
+                                            <span class="text-sm font-medium text-gray-900">85%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-600">Average Wait Time</span>
+                                            <span class="text-sm font-medium text-gray-900">22 min</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-sm text-gray-600">Staff Utilization</span>
+                                            <span class="text-sm font-medium text-gray-900">78%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Page -->
+                <div id="analytics-page" class="page">
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-semibold text-gray-900">Analytics</h2>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Workflow Efficiency</h3>
+                                <div class="h-64 flex items-center justify-center bg-gray-50 rounded">
+                                    <div class="text-center">
+                                        <i data-lucide="bar-chart" class="h-16 w-16 text-gray-400 mx-auto mb-2"></i>
+                                        <p class="text-gray-500">Chart visualization would go here</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Task Completion Rate</h3>
+                                <div class="h-64 flex items-center justify-center bg-gray-50 rounded">
+                                    <div class="text-center">
+                                        <i data-lucide="pie-chart" class="h-16 w-16 text-gray-400 mx-auto mb-2"></i>
+                                        <p class="text-gray-500">Chart visualization would go here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Performance Summary</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-blue-600">94%</div>
+                                    <div class="text-sm text-gray-600">Overall Efficiency</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-green-600">18 min</div>
+                                    <div class="text-sm text-gray-600">Avg Process Time</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-yellow-600">87%</div>
+                                    <div class="text-sm text-gray-600">Staff Satisfaction</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanban Board Page -->
+                <div id="kanban-board-page" class="page">
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-semibold text-gray-900">Kanban Board</h2>
+                        
+                        <div class="flex space-x-6 overflow-x-auto pb-4">
+                            <div class="flex-shrink-0 w-80">
+                                <div class="bg-gray-100 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold text-gray-900">To Do</h3>
+                                        <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-sm">3</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="bg-white p-4 rounded shadow">
+                                            <p class="font-medium text-gray-900 mb-2">Implement new triage workflow</p>
+                                            <p class="text-sm text-gray-600 mb-3">Update the patient triage process to improve efficiency</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">High Priority</span>
+                                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">A</div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded shadow">
+                                            <p class="font-medium text-gray-900 mb-2">Staff training documentation</p>
+                                            <p class="text-sm text-gray-600 mb-3">Create comprehensive training materials for new staff</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Medium Priority</span>
+                                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">B</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-shrink-0 w-80">
+                                <div class="bg-blue-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold text-gray-900">In Progress</h3>
+                                        <span class="bg-blue-200 text-blue-700 px-2 py-1 rounded text-sm">2</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="bg-white p-4 rounded shadow">
+                                            <p class="font-medium text-gray-900 mb-2">Equipment maintenance schedule</p>
+                                            <p class="text-sm text-gray-600 mb-3">Set up automated scheduling for equipment maintenance</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">In Progress</span>
+                                                <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs">C</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-shrink-0 w-80">
+                                <div class="bg-green-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold text-gray-900">Done</h3>
+                                        <span class="bg-green-200 text-green-700 px-2 py-1 rounded text-sm">4</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="bg-white p-4 rounded shadow">
+                                            <p class="font-medium text-gray-900 mb-2">Patient flow optimization</p>
+                                            <p class="text-sm text-gray-600 mb-3">Analyzed and improved patient flow through departments</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Completed</span>
+                                                <div class="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs">D</div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded shadow">
+                                            <p class="font-medium text-gray-900 mb-2">Dashboard redesign</p>
+                                            <p class="text-sm text-gray-600 mb-3">Updated the main dashboard with better visualizations</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Completed</span>
+                                                <div class="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs">E</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-semibold text-gray-900">Settings</h2>
+                        
+                        <div class="grid gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <i data-lucide="globe" class="h-5 w-5 mr-2"></i>
+                                    General Settings
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <option>English</option>
+                                            <option>Spanish</option>
+                                            <option>French</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Timezone</label>
+                                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <option>UTC</option>
+                                            <option>EST</option>
+                                            <option>PST</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <i data-lucide="bell" class="h-5 w-5 mr-2"></i>
+                                    Notification Settings
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <label class="font-medium text-gray-900">Email Notifications</label>
+                                            <p class="text-sm text-gray-600">Receive notifications about task updates and workflow changes</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer" checked>
+                                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        </label>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <label class="font-medium text-gray-900">Desktop Notifications</label>
+                                            <p class="text-sm text-gray-600">Show desktop notifications for urgent tasks</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer" checked>
+                                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="createWorkflowModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-lg font-semibold">Create New Workflow</h3>
+                <button onclick="closeModal('createWorkflowModal')" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="workflowForm">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Workflow Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                        <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="review">Review</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('createWorkflowModal')" class="btn-secondary">Cancel</button>
+                <button onclick="createWorkflow()" class="btn-primary">Create Workflow</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="createTaskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-lg font-semibold">Create New Task</h3>
+                <button onclick="closeModal('createTaskModal')" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Task Title</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                        <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Assignee</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select assignee</option>
+                                <option value="nurse-johnson">Nurse Johnson</option>
+                                <option value="tech-smith">Tech Smith</option>
+                                <option value="admin-wilson">Admin Wilson</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('createTaskModal')" class="btn-secondary">Cancel</button>
+                <button onclick="createTask()" class="btn-primary">Create Task</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="createScheduleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-lg font-semibold">Add Schedule</h3>
+                <button onclick="closeModal('createScheduleModal')" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleForm">
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Staff Member</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select staff member</option>
+                            <option value="nurse-johnson">Nurse Johnson</option>
+                            <option value="tech-smith">Tech Smith</option>
+                            <option value="nurse-davis">Nurse Davis</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Shift Start</label>
+                            <input type="time" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Shift End</label>
+                            <input type="time" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                        <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('createScheduleModal')" class="btn-secondary">Cancel</button>
+                <button onclick="createSchedule()" class="btn-primary">Add Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
