@@ -1,5 +1,9 @@
 # 🧑‍⚕️Healthcare Workflow Management System
 
+# 🚀Live Demo 
+ 
+  view live demo https://reaishma.github.io/Healthcare-informatics-solution-/
+
 ## ✅Overview
 
 A comprehensive healthcare workflow management system built with React frontend and Express backend. The application manages clinical workflows, task assignments, staff scheduling, patient flow monitoring, featuring process mapping, task management, performance analytics and provides real-time collaboration features through WebSocket connections. The system uses PostgreSQL with Drizzle ORM for data persistence and includes an agile Kanban board for workflow management.
@@ -131,10 +135,6 @@ The platform includes realistic sample data for demonstration:
 - All data is generic and for demonstration purposes only
 - Local storage only - no data transmitted to external servers
 - HIPAA-compliant design principles followed
-
-## 🚀Live Demo 
- 
-  [view live demo](https://reaishma.github.io/Healthcare-informatics-solution-/)
 
 
 
