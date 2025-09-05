@@ -43,6 +43,9 @@ A comprehensive healthcare workflow management system built with React frontend 
 - Track recent task assignments and completions
 
 ### Workflow Design
+
+![Workflow](https://github.com/Reaishma/Healthcare-informatics-solution-/blob/main/Screenshot_20250904-201038_1.jpg)
+
 - Create new workflows with the "Create Workflow" button
 - Edit existing workflows using the edit icon
 - Monitor workflow status and performance metrics
