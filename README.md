@@ -74,6 +74,9 @@ A comprehensive healthcare workflow management system built with React frontend 
 - Access performance summaries and trends
 
 ### Kanban Board
+
+![Kanban board](https://github.com/Reaishma/Healthcare-informatics-solution-/blob/main/Screenshot_20250904-200522_1.jpg)
+
 - Manage workflow items using agile methodology
 - Drag and drop functionality (visual only in this version)
 - Track progress from "To Do" to "Done"
