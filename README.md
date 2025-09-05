@@ -8,6 +8,8 @@
 
 A comprehensive healthcare workflow management system built with React frontend and Express backend. The application manages clinical workflows, task assignments, staff scheduling, patient flow monitoring, featuring process mapping, task management, performance analytics and provides real-time collaboration features through WebSocket connections. The system uses PostgreSQL with Drizzle ORM for data persistence and includes an agile Kanban board for workflow management.
 
+![Overview](https://github.com/Reaishma/Healthcare-informatics-solution-/blob/main/Screenshot_20250904-200452_2.jpg)
+
 ## 🚀 Features
 
 ### Core Functionality
