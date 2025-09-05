@@ -121,6 +121,9 @@ This platform demonstrates key healthcare workflow concepts:
 - **Discharge Process**: Medical clearance, documentation, follow-up
 
 ### Key Metrics
+
+![patient flow](https://github.com/Reaishma/Healthcare-informatics-solution-/blob/main/Screenshot_20250904-200615_1.jpg)
+
 - **Patient Flow**: Movement through care stages
 - **Task Completion**: Assignment and completion tracking
 - **Staff Utilization**: Shift coverage and workload
