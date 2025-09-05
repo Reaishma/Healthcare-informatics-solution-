@@ -51,6 +51,9 @@ A comprehensive healthcare workflow management system built with React frontend 
 - Monitor workflow status and performance metrics
 
 ### Task Management
+
+![Task management](https://github.com/Reaishma/Healthcare-informatics-solution-/blob/main/Screenshot_20250904-200936_1.jpg)
+
 - Filter tasks by status (All, Pending, In Progress, Completed)
 - Create new tasks with priority levels and assignments
 - Track task completion and deadlines
